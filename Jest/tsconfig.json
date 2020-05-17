@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "strict": true,
+        "noEmit": true,
+        "moduleResolution": "node", // Search under node_modules for non-relative imports
+        "jsx": "react", // support for react
+        "module": "ES6",
+        "lib": [],
+        "allowJs": true,
+        "isolatedModules": true,
+        // Import non-ES modules as default imports.
+        "esModuleInterop": true,
+        "removeComments": true,
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}   
