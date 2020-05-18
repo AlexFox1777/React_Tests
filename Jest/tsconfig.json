@@ -1,19 +1,32 @@
 {
     "compilerOptions": {
-        "target": "ES6",
-        "strict": true,
-        "noEmit": true,
-        "moduleResolution": "node", // Search under node_modules for non-relative imports
-        "jsx": "react", // support for react
-        "module": "ES6",
-        "lib": [],
+
+        "target": "es6", // Target is related to the output of your code, i.e. the compiled code targets a specific language variant
+        
+        "lib": [ //  a set of type definitions for built-in JS APIs
+            "dom", // DOM definitions - window, document, etc.
+            "dom.iterable",
+            "esnext"
+        ],
+        
+        "module":"ESNext", // module resolution system
+
+        "moduleResolution": "node", // Search under node_modules for non-relative imports.
+
+        "strict": true, 
+
+        "noEmit": true, // Don't emit; allow Babel to transform files
+
         "allowJs": true,
-        "isolatedModules": true,
-        // Import non-ES modules as default imports.
-        "esModuleInterop": true,
-        "removeComments": true,
+
+        "esModuleInterop": true, // // Import non-ES modules as default imports
+
+        "isolatedModules": true, // warn you if you write certain code that can’t be correctly interpreted by a single-file transpilation process
+
+        "jsx": "react", // support for react
     },
-    "exclude": [
-        "node_modules"
+
+    "include": [
+        "src"
     ]
-}   
+}
