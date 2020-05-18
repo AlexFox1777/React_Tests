@@ -1,5 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const path = require('path')
 
 module.exports = {
@@ -12,14 +12,20 @@ module.exports = {
         filename: 'bundle.js'
     },
 
+    resolve: {
+        extensions: [".ts", ".tsx", ".js"]
+    },
+
     // Loaders allow webpack to process other types of files and convert them into valid modules that can be consumed
     //  by your application and added to the dependency graph
     module: {
-        rules: {
-            test: /\.(ts|js)x?$/,
-            exclude: /node_modules/,
-            loader: 'babel_loader',
-        }
+        rules: [
+            {
+                test: /\.(ts|js)x?$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+            }
+        ]
     },
 
     plugins: [
@@ -27,7 +33,7 @@ module.exports = {
         new CleanWebpackPlugin(),
         // The plugin will generate an HTML5 file that includes all bundles in the body using script tags
         new HtmlWebpackPlugin({
-            template: '.src/index.html',
+            template: './src/index.html',
         })
     ]
 
