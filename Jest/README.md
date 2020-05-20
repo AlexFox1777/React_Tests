@@ -1,3 +1,33 @@
+# Jest
+
+## Installation
+
+`npm install --save-dev jest babel-jest react-test-renderer ts-jest`
+
+`----------------------------jest-------------------------`
+`|                            |                          |`
+`babel-jest           react-test-renderer           ts-jest`
+
+## Jest config for ts
+
+{
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ]
+  }
+}
+
+npm install --save-dev styled-components jest-styled-components
+
+-------------------------------------------------------------------------------------------------------------------
+
 
 # Babel vs TypeScript compiler
 
@@ -48,6 +78,7 @@ configure the TypeScript compiler only check types, but not emit files. And use 
 ## Configure TypeScript
 
 - In tsconfig.json you need to set `noEmit` to `true` which prevents TypeScript from writing its own JavaScript files.
+
 
 
 

@@ -19,7 +19,7 @@
 
         "allowJs": true,
 
-        "esModuleInterop": true, // // Import non-ES modules as default imports
+        "esModuleInterop": true, // Import non-ES modules as default imports
 
         "isolatedModules": true, // warn you if you write certain code that can’t be correctly interpreted by a single-file transpilation process
 
