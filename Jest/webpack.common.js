@@ -31,7 +31,7 @@ module.exports = {
                   {
                     loader: 'file-loader',
                     options: {
-                        name: 'dirname/[contenthash].[ext]',
+                      name: 'assets/[contenthash].[ext]',
                     },
                   },
                 ],

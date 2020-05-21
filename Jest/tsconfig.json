@@ -24,9 +24,11 @@
         "isolatedModules": true, // warn you if you write certain code that can’t be correctly interpreted by a single-file transpilation process
 
         "jsx": "react", // support for react
+
+        "typeRoots": ["custom_typings", "node_modules/@types"]
     },
 
     "include": [
-        "src"
+        "src", "custom_typings"
     ]
 }

@@ -1,5 +1,11 @@
 # Jest
 
+npm i --save-dev jest react-test-renderer ts-jest babel-jest @types/react-test-renderer @types/jest
+
+
+re-generate snapshots - `jest --updateSnapshot`
+
+
 ## Installation
 
 `npm install --save-dev jest babel-jest react-test-renderer ts-jest`

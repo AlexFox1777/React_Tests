@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState, FormEvent, MouseEvent } from 'react'
 import ToDo from './ToDo'
 import styled from 'styled-components'
-import Logo from './jestlogo.png'
+import img  from './jest.png'
 
 const Main = styled.div`
     max-width: 400px;
@@ -12,13 +12,21 @@ const Main = styled.div`
     align-items: center;
     justify-content: center;
     padding: 20px;
-    h1{
-        padding-bottom: 30px;
-    }
 `
 
 const Logo = styled.div`
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 30px;
+
+    a{
+        width: 25%;
+        height: 25%;
+    }
+    img{
+        width: 100%;
+    }
 `
 
 const ToDos = styled.div`
@@ -40,6 +48,9 @@ const AddToDo = styled.form`
         input{
             height: 35px;
             outline: none;
+            border-radius: 3px;
+            padding-left: 10px;
+            border: 1px solid #96b2bb;
         }
     }
 
@@ -49,7 +60,12 @@ const AddToDo = styled.form`
         outline: none;
         cursor: pointer;
         border-radius: 3px;
+        border: none;
+        background: #d6e9ef;
         text-transform: uppercase;
+        &:hover{
+            background: #b1ebfd;
+        }
     }
 `
 
@@ -77,7 +93,7 @@ const ToDoApp:FunctionComponent = () => {
         <Main>
             <Logo>
                 <h1>Todo with Jest</h1>
-                <img src={Logo} />
+                <a href="https://jestjs.io/docs/en/getting-started"><img src={img} /></a>
             </Logo>
             <ToDos>
                 {toDos.map((toDoItem, index)=> <ToDo index={index} todo={toDoItem} deleteToDo={deleteToDo} />)}
@@ -95,8 +111,8 @@ const ToDoApp:FunctionComponent = () => {
 
 export default ToDoApp
 
-// an input field for typing up new ToDo
-// ‘Add’ button for adding ToDos
+// an input field for typing up new ToDo 
+// ‘Add’ button for adding ToDos 
 // If the ‘Add’ button is pressed but the input field is empty, prevent a new ToDo item from being created
 // If the ‘Add’ button is pressed but the input field is empty, show an alert to the user
 // If the ‘Add’ button is pressed and the input field has content, add a new ToDo item
