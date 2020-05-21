@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToDoApp renders correctly 1`] = `
+<div
+  className="sc-AxjAm UhLAv"
+>
+  <span>
+    2. Do it now
+  </span>
+  <button
+    className="sc-AxirZ fulsVm"
+    onClick={[Function]}
+  >
+    X
+  </button>
+</div>
+`;
