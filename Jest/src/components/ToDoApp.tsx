@@ -70,7 +70,7 @@ const AddToDo = styled.form`
 `
 
 const ToDoApp:FunctionComponent = () => {
-    const [toDos, setToDos] = useState<Array<string>>([])
+    const [toDos, setToDos] = useState<Array<string>>(["Go to store", "Pick up the dog from its school"])
     const [toDo, setToDo] = useState('')
 
     function handleToDo(e: FormEvent<HTMLInputElement>){
@@ -96,7 +96,7 @@ const ToDoApp:FunctionComponent = () => {
                 <a href="https://jestjs.io/docs/en/getting-started"><img src={img} /></a>
             </Logo>
             <ToDos>
-                {toDos.map((toDoItem, index)=> <ToDo index={index} todo={toDoItem} deleteToDo={deleteToDo} />)}
+                {toDos.map((toDoItem, index)=> <ToDo key={index} index={index} todo={toDoItem} deleteToDo={deleteToDo} />)}
             </ToDos>
             <AddToDo>
                 <label htmlFor="todo" className="todo">

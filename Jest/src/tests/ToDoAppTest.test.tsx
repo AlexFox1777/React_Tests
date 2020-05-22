@@ -1,13 +1,16 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
+import Enzyme, { shallow } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 import ToDoApp from '../components/ToDoApp'
 
 
-
-
-
-test('ToDoApp renders correctly', () => { 
-    let component = renderer.create(<ToDoApp />)
-    let tree = component.toJSON()
-    expect(tree).toMatchSnapshot()
- })
+describe('ToDoApp component', () => {
+    beforeAll(() =>{
+        Enzyme.configure({ adapter: new Adapter() })
+    })
+    it('Renders correctly', () => {
+        const component = shallow(<ToDoApp />)
+        expect(component).toMatchSnapshot()
+    })
+    
+})
