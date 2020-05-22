@@ -22,22 +22,28 @@ const IconBtn = styled.button`
 
 type Props = {
     todo: string;
-    index: number;
+    index: number | string;
     deleteToDo: (index: number) => void;
 }
 
-const ToDo:FunctionComponent<Props> = ({
-    todo,
-    index,
-    deleteToDo
+export let defaultProps:Props = {
+    todo: 'Do nothing',
+    index: '-',
+    deleteToDo: () => {}
+}
+
+const ToDo:FunctionComponent<Partial<Props>> = ({
+    todo = defaultProps.todo,
+    index = defaultProps.index,
+    deleteToDo = defaultProps.deleteToDo
 }) => {
     return (
         <Item>
             <span>
-                {`${index + 1}. ${todo}`}
+                {`${typeof index === 'number' ? `${index + 1}.` : index} ${todo}`}
             </span>
             
-            <IconBtn onClick={() => deleteToDo(index)}>X</IconBtn>
+            <IconBtn onClick={() => typeof index === 'number' && deleteToDo(index)}>X</IconBtn>
         </Item>
     )
 }
