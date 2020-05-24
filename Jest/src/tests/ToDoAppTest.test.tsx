@@ -27,10 +27,8 @@ describe('ToDoApp component', () => {
     })
     // If the ‘Add’ button is pressed and the input field has content, add a new ToDo item
     it('Display new todo', () => {
-        // const component = mount(<ToDoApp />)
-        // component.find('#todo-field').simulate('change', { target: { value: 'Hello' } })
-        // component.find('#todo-field').instance().value = "abc";
-        // component.find('button.active').simulate('click')
-        // expect(component.find('div.todo-item')).toHaveLength(3)
+        const component = mount(<ToDoApp toDoProps="Hello" />)
+        component.find('button.active').simulate('click')
+        expect(component.find('div.todo-item')).toHaveLength(3)
     })
 })
