@@ -94,6 +94,9 @@ npm i @types/enzyme @types/enzyme-adapter-react-16 -D
 • mount + setProps call componentWillReceiveProps, shouldComponentUpdate, componentWillUpdate, render, componentDidUpdate methods.
 • mount + unmount call componentWillUnmount method.
 
+### Sinon
+
+sinon: Spy functions, mocks, and stubs
 
 -------------------------------------------------------------------------------------------------------------------
 

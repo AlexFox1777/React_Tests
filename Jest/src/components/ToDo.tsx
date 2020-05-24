@@ -38,12 +38,12 @@ const ToDo:FunctionComponent<Partial<Props>> = ({
     deleteToDo = defaultProps.deleteToDo
 }) => {
     return (
-        <Item>
+        <Item className="todo-item">
             <span>
                 {`${typeof index === 'number' ? `${index + 1}.` : index} ${todo}`}
             </span>
             
-            <IconBtn onClick={() => typeof index === 'number' && deleteToDo(index)}>X</IconBtn>
+            <IconBtn className="delete" onClick={() => typeof index === 'number' && deleteToDo(index)}>X</IconBtn>
         </Item>
     )
 }
