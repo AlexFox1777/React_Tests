@@ -85,10 +85,16 @@ const AddToDo = styled.form`
     }
 `
 
-const ToDoApp:FunctionComponent = () => {
+type Props = {
+    toDoProps?: string,
+}
+
+const ToDoApp:FunctionComponent<Props> = ({
+    toDoProps,
+}) => {
     const [toDos, setToDos] = useState<Array<string>>(["Go to store", "Pick up the dog from its school"])
     const [alert, setAlert] = useState('')
-    const [toDo, setToDo] = useState('')
+    const [toDo, setToDo] = useState(toDoProps || '')
 
     function handleToDo(e: FormEvent<HTMLInputElement>){
         e.preventDefault()
