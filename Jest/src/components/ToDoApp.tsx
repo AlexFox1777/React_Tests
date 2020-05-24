@@ -33,14 +33,23 @@ const ToDos = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
+    border-bottom: 1px solid  #6d6d6da6;
 `
+const Alert = styled.span`
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    color: red;
+    padding-top: 15px;
+    padding-bottom: 15px;
+`
+
 const AddToDo = styled.form`
     display: flex;
     align-items: flex-end;
     width: 100%;
-    border-top: 1px solid #6d6d6da6;
-    padding-top: 15px;
-    .todo{
+    .todo-label{
         display: flex;
         flex-direction: column;
         width: 65%;
@@ -58,23 +67,32 @@ const AddToDo = styled.form`
         width: 30%;
         height: 35px;
         outline: none;
-        cursor: pointer;
         border-radius: 3px;
         border: none;
         background: #d6e9ef;
         text-transform: uppercase;
-        &:hover{
-            background: #b1ebfd;
+        
+        &.active{
+            cursor: pointer;
+            &:hover{
+                background: #c9edf9;
+            }
+        }
+        &.disabled{
+            background: #e3eff3;
+            color: #b8c5ca;
         }
     }
 `
 
 const ToDoApp:FunctionComponent = () => {
     const [toDos, setToDos] = useState<Array<string>>(["Go to store", "Pick up the dog from its school"])
+    const [alert, setAlert] = useState('')
     const [toDo, setToDo] = useState('')
 
     function handleToDo(e: FormEvent<HTMLInputElement>){
         e.preventDefault()
+        setAlert('')
         setToDo(e.currentTarget. value)
     }
 
@@ -86,7 +104,14 @@ const ToDoApp:FunctionComponent = () => {
 
     function addToDo(e: MouseEvent<HTMLButtonElement>){
         e.preventDefault()
-        setToDos([...toDos, toDo])
+        if(toDo.length > 0){
+            setToDos([...toDos, toDo])
+        }
+    }
+
+    function fireAlert(e: MouseEvent<HTMLButtonElement>){
+        e.preventDefault()
+        setAlert('Type a todo')
     }
 
     return (
@@ -98,12 +123,17 @@ const ToDoApp:FunctionComponent = () => {
             <ToDos>
                 {toDos.map((toDoItem, index)=> <ToDo key={index} index={index} todo={toDoItem} deleteToDo={deleteToDo} />)}
             </ToDos>
+            <Alert className="alert">{alert}</Alert>
             <AddToDo>
-                <label htmlFor="todo" className="todo">
+                <label htmlFor="todo-field" className="todo-label">
                     Todo Name
-                    <input id="todo" type="text" onChange={handleToDo}></input>
+                    <input id="todo-field" type="text" onChange={handleToDo}></input>
                 </label>
-                <button type="submit" onClick={addToDo}>Create</button>
+                <button type="submit" 
+                    className={toDo.length > 0 ? 'active' : 'disabled'}
+                    onClick={toDo.length > 0 ? addToDo : fireAlert}>
+                    Create
+                </button>
             </AddToDo>
         </Main>
     )
