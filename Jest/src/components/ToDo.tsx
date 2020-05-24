@@ -39,7 +39,7 @@ const ToDo:FunctionComponent<Partial<Props>> = ({
 }) => {
     return (
         <Item className="todo-item">
-            <span>
+            <span className="todo-phrase">
                 {`${typeof index === 'number' ? `${index + 1}.` : index} ${todo}`}
             </span>
             
